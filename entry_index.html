@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Archery Score Entry</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🏹 Archery Score Entry</h1>
+
+        <form action="submit.php" method="POST">
+
+            <!-- ROUND SECTION -->
+            <div class="section-title">
+                CHOOSE ROUND
+            </div>
+
+            <div class="form-group">
+
+                <label for="round">
+                    Location / Number of Arrows
+                </label>
+
+                <select name="round" id="round" required>
+                    <option value="">-- Select Round --</option>
+
+                    <option value="Indoor Range - 30 Arrows">
+                        Indoor Range - 30 Arrows
+                    </option>
+
+                    <option value="Outdoor Range - 60 Arrows">
+                        Outdoor Range - 60 Arrows
+                    </option>
+
+                    <option value="Competition Round - 72 Arrows">
+                        Competition Round - 72 Arrows
+                    </option>
+
+                    <option value="Practice Round - 36 Arrows">
+                        Practice Round - 36 Arrows
+                    </option>
+                </select>
+
+            </div>
+
+            <!-- ARCHER SECTION -->
+            <div class="section-title">
+                CHOOSE ARCHER
+            </div>
+
+            <div class="form-group">
+
+                <label for="archer">
+                    Archer
+                </label>
+
+                <select name="archer" id="archer" required>
+
+                    <option value="">-- Select Archer --</option>
+
+                    <option value="John Smith">John Smith</option>
+                    <option value="Emily Johnson">Emily Johnson</option>
+                    <option value="Michael Lee">Michael Lee</option>
+                    <option value="Sarah Brown">Sarah Brown</option>
+
+                </select>
+
+            </div>
+
+            <!-- ARCHER INFO -->
+            <div class="form-group">
+
+                <label>
+                    Archer First Name
+                </label>
+
+                <input
+                    type="text"
+                    value="John"
+                    readonly
+                    class="readonly-box"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Archer Last Name
+                </label>
+
+                <input
+                    type="text"
+                    value="Smith"
+                    readonly
+                    class="readonly-box"
+                >
+
+            </div>
+
+            <!-- EQUIPMENT -->
+            <div class="form-group">
+
+                <label for="equipment">
+                    Equipment
+                </label>
+
+                <select name="equipment" id="equipment">
+
+                    <option value="Recurve">Recurve</option>
+                    <option value="Compound">Compound</option>
+                    <option value="Longbow">Longbow</option>
+                    <option value="Barebow">Barebow</option>
+
+                </select>
+
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="submit-btn">
+                DONE
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
