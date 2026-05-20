@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 } else {
 
-    header("Location: entry_index.html");
+    header("Location: entry_index.php");
     exit();
 }
 
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
 
-        <a href="entry_index.html" class="back-button">
+        <a href="entry_index.php" class="back-button">
             Enter Another Score
         </a>
 
