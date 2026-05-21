@@ -1,143 +1,209 @@
-<!-- ARCHER SECTION -->
-<div class="section-title">
-    CHOOSE ARCHER
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
-<div class="form-group">
-
-    <label for="archer">
-        Archer
-    </label>
-
-    <select
-        name="archer"
-        id="archer"
-        required
-        onchange="updateArcherInfo()"
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-        <option value="">
-            -- Select Archer --
-        </option>
+    <title>Archery Score Entry</title>
 
-        <option
-            value="John Smith"
-            data-first="John"
-            data-last="Smith"
-            data-equipment="Recurve"
-        >
-            John Smith
-        </option>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-        <option
-            value="Emily Johnson"
-            data-first="Emily"
-            data-last="Johnson"
-            data-equipment="Compound"
-        >
-            Emily Johnson
-        </option>
+</head>
 
-        <option
-            value="Michael Lee"
-            data-first="Michael"
-            data-last="Lee"
-            data-equipment="Longbow"
-        >
-            Michael Lee
-        </option>
+<body>
 
-        <option
-            value="Sarah Brown"
-            data-first="Sarah"
-            data-last="Brown"
-            data-equipment="Barebow"
-        >
-            Sarah Brown
-        </option>
+    <div class="container">
 
-    </select>
+        <h1>🏹 Archery Score Entry</h1>
 
-</div>
+        <form action="submit.php" method="POST">
 
-<!-- FIRST NAME -->
-<div class="form-group">
+            <!-- ROUND SECTION -->
+            <div class="section-title">
+                CHOOSE ROUND
+            </div>
 
-    <label>
-        Archer First Name
-    </label>
+            <div class="form-group">
 
-    <input
-        type="text"
-        id="firstName"
-        readonly
-        class="readonly-box"
-    >
+                <label for="round">
+                    Location / Number of Arrows
+                </label>
 
-</div>
+                <select
+                    name="round"
+                    id="round"
+                    required
+                >
 
-<!-- LAST NAME -->
-<div class="form-group">
+                    <option value="">
+                        -- Select Round --
+                    </option>
 
-    <label>
-        Archer Last Name
-    </label>
+                    <option value="Indoor Range - 30 Arrows">
+                        Indoor Range - 30 Arrows
+                    </option>
 
-    <input
-        type="text"
-        id="lastName"
-        readonly
-        class="readonly-box"
-    >
+                    <option value="Outdoor Range - 60 Arrows">
+                        Outdoor Range - 60 Arrows
+                    </option>
 
-</div>
+                    <option value="Competition Round - 72 Arrows">
+                        Competition Round - 72 Arrows
+                    </option>
 
-<!-- EQUIPMENT -->
-<div class="form-group">
+                    <option value="Practice Round - 36 Arrows">
+                        Practice Round - 36 Arrows
+                    </option>
 
-    <label for="equipment">
-        Equipment
-    </label>
+                </select>
 
-    <select name="equipment" id="equipment">
+            </div>
 
-        <option value="Recurve">Recurve</option>
-        <option value="Compound">Compound</option>
-        <option value="Longbow">Longbow</option>
-        <option value="Barebow">Barebow</option>
+            <!-- ARCHER SECTION -->
+            <div class="section-title">
+                CHOOSE ARCHER
+            </div>
 
-    </select>
+            <div class="form-group">
 
-</div>
+                <label for="archer">
+                    Archer
+                </label>
 
-<!-- JAVASCRIPT -->
-<script>
+                <select
+                    name="archer"
+                    id="archer"
+                    required
+                    onchange="updateArcherInfo()"
+                >
 
-function updateArcherInfo() {
+                    <option value="">
+                        -- Select Archer --
+                    </option>
 
-    const archerSelect =
-        document.getElementById("archer");
+                    <option
+                        value="John Smith"
+                        data-first="John"
+                        data-last="Smith"
+                        data-equipment="Recurve"
+                    >
+                        John Smith
+                    </option>
 
-    const selectedOption =
-        archerSelect.options[archerSelect.selectedIndex];
+                    <option
+                        value="Emily Johnson"
+                        data-first="Emily"
+                        data-last="Johnson"
+                        data-equipment="Compound"
+                    >
+                        Emily Johnson
+                    </option>
 
-    const firstName =
-        selectedOption.getAttribute("data-first");
+                    <option
+                        value="Michael Lee"
+                        data-first="Michael"
+                        data-last="Lee"
+                        data-equipment="Longbow"
+                    >
+                        Michael Lee
+                    </option>
 
-    const lastName =
-        selectedOption.getAttribute("data-last");
+                    <option
+                        value="Sarah Brown"
+                        data-first="Sarah"
+                        data-last="Brown"
+                        data-equipment="Barebow"
+                    >
+                        Sarah Brown
+                    </option>
 
-    const equipment =
-        selectedOption.getAttribute("data-equipment");
+                </select>
 
-    document.getElementById("firstName").value =
-        firstName || "";
+            </div>
 
-    document.getElementById("lastName").value =
-        lastName || "";
+            <!-- FIRST NAME -->
+            <div class="form-group">
 
-    document.getElementById("equipment").value =
-        equipment || "Recurve";
-}
+                <label for="firstName">
+                    Archer First Name
+                </label>
 
-</script>
+                <input
+                    type="text"
+                    id="firstName"
+                    class="readonly-box"
+                    readonly
+                >
+
+            </div>
+
+            <!-- LAST NAME -->
+            <div class="form-group">
+
+                <label for="lastName">
+                    Archer Last Name
+                </label>
+
+                <input
+                    type="text"
+                    id="lastName"
+                    class="readonly-box"
+                    readonly
+                >
+
+            </div>
+
+            <!-- EQUIPMENT -->
+            <div class="form-group">
+
+                <label for="equipment">
+                    Equipment
+                </label>
+
+                <select
+                    name="equipment"
+                    id="equipment"
+                >
+
+                    <option value="Recurve">
+                        Recurve
+                    </option>
+
+                    <option value="Compound">
+                        Compound
+                    </option>
+
+                    <option value="Longbow">
+                        Longbow
+                    </option>
+
+                    <option value="Barebow">
+                        Barebow
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                DONE
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
