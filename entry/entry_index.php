@@ -1,136 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ARCHER SECTION -->
+<div class="section-title">
+    CHOOSE ARCHER
+</div>
 
-    <title>Archery Score Entry</title>
+<div class="form-group">
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <label for="archer">
+        Archer
+    </label>
 
-<body>
+    <select
+        name="archer"
+        id="archer"
+        required
+        onchange="updateArcherInfo()"
+    >
 
-    <div class="container">
+        <option value="">
+            -- Select Archer --
+        </option>
 
-        <h1>🏹 Archery Score Entry</h1>
+        <option
+            value="John Smith"
+            data-first="John"
+            data-last="Smith"
+            data-equipment="Recurve"
+        >
+            John Smith
+        </option>
 
-        <form action="entry_submit.php" method="POST">
+        <option
+            value="Emily Johnson"
+            data-first="Emily"
+            data-last="Johnson"
+            data-equipment="Compound"
+        >
+            Emily Johnson
+        </option>
 
-            <!-- ROUND SECTION -->
-            <div class="section-title">
-                CHOOSE ROUND
-            </div>
+        <option
+            value="Michael Lee"
+            data-first="Michael"
+            data-last="Lee"
+            data-equipment="Longbow"
+        >
+            Michael Lee
+        </option>
 
-            <div class="form-group">
+        <option
+            value="Sarah Brown"
+            data-first="Sarah"
+            data-last="Brown"
+            data-equipment="Barebow"
+        >
+            Sarah Brown
+        </option>
 
-                <label for="round">
-                    Location / Number of Arrows
-                </label>
+    </select>
 
-                <select name="round" id="round" required>
-                    <option value="">-- Select Round --</option>
+</div>
 
-                    <option value="Indoor Range - 30 Arrows">
-                        Indoor Range - 30 Arrows
-                    </option>
+<!-- FIRST NAME -->
+<div class="form-group">
 
-                    <option value="Outdoor Range - 60 Arrows">
-                        Outdoor Range - 60 Arrows
-                    </option>
+    <label>
+        Archer First Name
+    </label>
 
-                    <option value="Competition Round - 72 Arrows">
-                        Competition Round - 72 Arrows
-                    </option>
+    <input
+        type="text"
+        id="firstName"
+        readonly
+        class="readonly-box"
+    >
 
-                    <option value="Practice Round - 36 Arrows">
-                        Practice Round - 36 Arrows
-                    </option>
-                </select>
+</div>
 
-            </div>
+<!-- LAST NAME -->
+<div class="form-group">
 
-            <!-- ARCHER SECTION -->
-            <div class="section-title">
-                CHOOSE ARCHER
-            </div>
+    <label>
+        Archer Last Name
+    </label>
 
-            <div class="form-group">
+    <input
+        type="text"
+        id="lastName"
+        readonly
+        class="readonly-box"
+    >
 
-                <label for="archer">
-                    Archer
-                </label>
+</div>
 
-                <select name="archer" id="archer" required>
+<!-- EQUIPMENT -->
+<div class="form-group">
 
-                    <option value="">-- Select Archer --</option>
+    <label for="equipment">
+        Equipment
+    </label>
 
-                    <option value="John Smith">John Smith</option>
-                    <option value="Emily Johnson">Emily Johnson</option>
-                    <option value="Michael Lee">Michael Lee</option>
-                    <option value="Sarah Brown">Sarah Brown</option>
+    <select name="equipment" id="equipment">
 
-                </select>
+        <option value="Recurve">Recurve</option>
+        <option value="Compound">Compound</option>
+        <option value="Longbow">Longbow</option>
+        <option value="Barebow">Barebow</option>
 
-            </div>
+    </select>
 
-            <!-- ARCHER INFO -->
-            <div class="form-group">
+</div>
 
-                <label>
-                    Archer First Name
-                </label>
+<!-- JAVASCRIPT -->
+<script>
 
-                <input
-                    type="text"
-                    value="John"
-                    readonly
-                    class="readonly-box"
-                >
+function updateArcherInfo() {
 
-            </div>
+    const archerSelect =
+        document.getElementById("archer");
 
-            <div class="form-group">
+    const selectedOption =
+        archerSelect.options[archerSelect.selectedIndex];
 
-                <label>
-                    Archer Last Name
-                </label>
+    const firstName =
+        selectedOption.getAttribute("data-first");
 
-                <input
-                    type="text"
-                    value="Smith"
-                    readonly
-                    class="readonly-box"
-                >
+    const lastName =
+        selectedOption.getAttribute("data-last");
 
-            </div>
+    const equipment =
+        selectedOption.getAttribute("data-equipment");
 
-            <!-- EQUIPMENT -->
-            <div class="form-group">
+    document.getElementById("firstName").value =
+        firstName || "";
 
-                <label for="equipment">
-                    Equipment
-                </label>
+    document.getElementById("lastName").value =
+        lastName || "";
 
-                <select name="equipment" id="equipment">
+    document.getElementById("equipment").value =
+        equipment || "Recurve";
+}
 
-                    <option value="Recurve">Recurve</option>
-                    <option value="Compound">Compound</option>
-                    <option value="Longbow">Longbow</option>
-                    <option value="Barebow">Barebow</option>
-
-                </select>
-
-            </div>
-
-            <!-- SUBMIT BUTTON -->
-            <button type="submit" class="submit-btn">
-                DONE
-            </button>
-
-        </form>
-
-    </div>
-
-</body>
-</html>
+</script>
