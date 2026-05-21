@@ -10,8 +10,8 @@ if ($conn->connect_error) {
 	die("Database connection failed " . $conn->connect_error);
 }
 
-list($divisions, $classes) = array_map(function($sql) {
-	$stmt = $conn->prepare(sql);
+list($divisions, $classes) = array_map(function($sql) use ($conn) {
+	$stmt = $conn->prepare($sql);
 	$stmt->execute();
 	return $stmt->get_result()->fetch_all();
 }, [
@@ -34,17 +34,17 @@ list($divisions, $classes) = array_map(function($sql) {
 		<p>Which class would you like to retrieve the championship results for?</p>
 
 		<form action="champ-results.php">
-			<p><label for="champ_year">Championship year: </label><input name="champ_year" id="champ_year" type="number" min="1900" step="1" value="<?php echo date("Y"); ?>"></p>
+			<p><label for="champ_year">Championship year: </label><input name="champ_year" id="champ_year" type="number" min="1900" step="1" max="<?php echo date("Y"); ?>" value="<?php echo date("Y"); ?>"></p>
 
 			<p><label for="champ_gender">Gender: </label><select name="champ_gender" id="champ_gender"><option value="0">Male</option><option value="1">Female</option></select></p>
 
 			<table>
-				<tr>
+				<tr style="writing-mode:vertical-lr">
 					<td></td>
 					
 					<?php
 						foreach ($divisions as $division) {
-							echo "<td>$division</td>";
+							echo "<td>$division[0]</td>";
 						}
 					?>
 				</tr>
@@ -54,7 +54,7 @@ list($divisions, $classes) = array_map(function($sql) {
 						echo "<tr><td>$class</td>";
 
 						foreach ($divisions as $division) {
-							echo "<td><input type='radio' name='class_division' value='".(json_encode(array($class,$division)))."'></td>";
+							echo "<td><input type='radio' name='champ_class_division' value='".(json_encode(array($class,$division)))."'></td>";
 						}
 
 						echo "</tr>";
@@ -62,7 +62,7 @@ list($divisions, $classes) = array_map(function($sql) {
 				?>
 			</table>
 
-			<input type="submit" value="Retrieve">
+			<p><input type="submit" value="Retrieve"></p>
 		</form>
 	</body>
 </html>
