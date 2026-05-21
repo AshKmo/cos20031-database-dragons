@@ -36,6 +36,8 @@ list($divisions, $classes) = array_map(function($sql) {
 		<form action="champ-results.php">
 			<p><label for="champ_year">Championship year: </label><input name="champ_year" id="champ_year" type="number" min="1900" step="1" value="<?php echo date("Y"); ?>"></p>
 
+			<p><label for="champ_gender">Gender: </label><select name="champ_gender" id="champ_gender"><option value="0">Male</option><option value="1">Female</option></select></p>
+
 			<table>
 				<tr>
 					<td></td>
@@ -48,15 +50,15 @@ list($divisions, $classes) = array_map(function($sql) {
 				</tr>
 				
 				<?php
-foreach ($classes as $class) {
-	echo "<tr><td>$class</td>";
+					foreach ($classes as $class) {
+						echo "<tr><td>$class</td>";
 
-	foreach ($divisions as $division) {
-		echo "<td><input type='radio' name='class_division' value='".(json_encode(array($class,$division)))."'></td>";
-	}
+						foreach ($divisions as $division) {
+							echo "<td><input type='radio' name='class_division' value='".(json_encode(array($class,$division)))."'></td>";
+						}
 
-	echo "</tr>";
-}
+						echo "</tr>";
+					}
 				?>
 			</table>
 
