@@ -1,0 +1,21 @@
+* {
+	font-family: sans-serif;
+}
+
+table {
+	border-collapse: collapse;
+
+	th,
+	td {
+		border: 1px solid black;
+		padding: 5px 20px 5px 20px;
+	}
+
+	th {
+		background-color: #eaecf0;
+	}
+
+	tbody {
+		background-color: #f8f9fa;
+	}
+}
