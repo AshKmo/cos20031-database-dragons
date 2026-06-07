@@ -9,7 +9,7 @@
 
 		<ul>
 			<li><a href="definitions">Competition and Round Definitions</a></li>
-			<li><a href="entry">Score Entry</a></li>
+			<li><a href="entry/entry_index.php">Score Entry</a></li>
 			<li><a href="scoring">Score Retrieval</a></li>
 		</ul>
 	</body>
